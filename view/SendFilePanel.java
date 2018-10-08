@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -13,9 +14,12 @@ public class SendFilePanel extends JPanel {
 	
 	public SendFilePanel() {
 		
-		jtextfield = new JTextField(10);
+		jtextfield = new JTextField();
+		
 		sendButton = new JButton("Send");
 		browseButton = new JButton("Browse");
+		jtextfield.setPreferredSize(new Dimension(100, sendButton.getPreferredSize().height));
+		
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 1;

@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
@@ -17,6 +18,9 @@ public class MessageLogPanel extends JPanel {
 		setBorder(new CompoundBorder(new TitledBorder("Message Log"), new EmptyBorder(5, 0, 0, 0)));
 
 		log = new JTextPane();
+		
+		log.setPreferredSize(new Dimension(200, 200));
+		
 	
 		jscroll = new JScrollPane(log);
 		

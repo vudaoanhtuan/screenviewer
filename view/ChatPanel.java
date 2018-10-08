@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -17,8 +18,11 @@ public class ChatPanel extends JPanel {
 	public JButton sendButton;
 	public ChatPanel() {
 
-		input = new JTextField(10);
 		sendButton = new JButton("Send");
+		input = new JTextField(10);
+		
+		input.setPreferredSize(new Dimension(100, sendButton.getPreferredSize().height));
+		
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 1;
