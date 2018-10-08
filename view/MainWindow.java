@@ -1,11 +1,13 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.Panel;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,11 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
 
 public class MainWindow extends JFrame {
 	static String title = "Screen Viewer";
 	static int w_height = 600;
 	static int w_width = 600;
+	
+	public JPanel mainPanel;
 	
 	public ButtonPanel buttonPanel;
 	public ChatPanel chatPanel;
@@ -36,52 +41,53 @@ public class MainWindow extends JFrame {
 	
 	public MainWindow() {
 		initComponent();
+		
+
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setTitle(title);
 		setSize(w_width, w_height);
 		setVisible(true);
-		setLayout(new GridLayout(5, 1));
 
-		setLayout(new GridBagLayout());
+		mainPanel = new JPanel();
 		
-		GridBagConstraints c = new GridBagConstraints();
-	
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx = 1;
-        c.weighty = 1;
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(4, 4, 4, 4);
+		EmptyBorder padding = new EmptyBorder(5, 5, 5, 5);	
+		
+		mainPanel.setBorder(padding);
+		
+        JPanel head_panel = new JPanel();
+        head_panel.setLayout(new BorderLayout());
         
-
-	    c.gridx = 0;
-	    c.gridy = 0;
-
-	    add(buttonPanel, c);
-	    
-	    
-	    c.gridy++;
-	    
-	    add(sysLogPanel, c);
-	    
-	    
-
-	    c.gridy++;
-	    
-	    add(messLogPanel, c);
-	    
-	    
-
-	    c.gridy++;
+        
+        head_panel.add(buttonPanel, BorderLayout.NORTH);
+        head_panel.add(sysLogPanel, BorderLayout.CENTER);
+        
+        
+        
+        JPanel foot_panel = new JPanel();
+        foot_panel.setLayout(new BorderLayout());
+        foot_panel.add(messLogPanel, BorderLayout.CENTER);
    
-	    add(sendFilePanel, c);
+        JPanel pan = new JPanel();
+	    pan.setLayout(new GridLayout(2, 1, 5 ,5));
+	    
+	    pan.add(sendFilePanel);
+	    pan.add(chatPanel);
 	    
 	    
-	    c.gridy++;
+	    foot_panel.add(pan, BorderLayout.SOUTH);
 
-	    add(chatPanel, c);
+	    mainPanel.setLayout(new GridLayout(2, 1));
+	    
+	    mainPanel.add(head_panel);
+	    mainPanel.add(foot_panel);
+	    
+	    add(mainPanel);
+	    
+	    sysLogPanel.log("Helo");
+	    sysLogPanel.log("Helo");
+	    sysLogPanel.log("Helo");
 	 
 
 	}
