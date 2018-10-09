@@ -9,6 +9,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.Document;
 
 public class MessageLogPanel extends JPanel {
 	public JScrollPane jscroll;
@@ -25,5 +26,15 @@ public class MessageLogPanel extends JPanel {
 		jscroll = new JScrollPane(log);
 		
 		add(jscroll);
+	}
+	
+	public void log(String user, String mess) {
+	   try {
+			Document doc = log.getDocument();
+			String s = user + ": " + mess + "\n";
+			doc.insertString(doc.getLength(), s, null);
+	   } catch(Exception exc) {
+		   	exc.printStackTrace();
+	   }
 	}
 }

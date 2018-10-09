@@ -83,12 +83,7 @@ public class MainWindow extends JFrame {
 	    mainPanel.add(head_panel);
 	    mainPanel.add(foot_panel);
 	    
-	    add(mainPanel);
-	    
-	    sysLogPanel.log("Helo");
-	    sysLogPanel.log("Helo");
-	    sysLogPanel.log("Helo");
-	 
+	    add(mainPanel);	 
 
 	}
 	
