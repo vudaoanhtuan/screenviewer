@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package protobuf;
+
+
+option java_outer_classname = "MessagePB";
+
+message Message {
+  enum MessageType {
+    NONE = 0;
+    VIEW_SCREEN = 1;
+    SEND_FILE = 2;
+    CHAT = 3;
+
+    YES = 4;
+    NO = 5;
+  }
+
+  required MessageType type = 1 [default = NONE];
+  optional string mess = 2;
+}
