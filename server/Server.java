@@ -15,9 +15,9 @@ public class Server implements Runnable {
 		clientNumber = 0;
 		try {
 			port = 7777;
-			Log.syslog("Server starting");
+//			Log.syslog("Server starting");
 			listener = new ServerSocket(port);
-			Log.syslog("Server started at port " + port);
+//			Log.syslog("Server started at port " + port);
 		} catch (IOException e) {
 			System.out.println(e);
 			System.exit(1);
@@ -31,7 +31,8 @@ public class Server implements Runnable {
 			while (true) {
 				clientNumber++;
 				Socket socketOfServer = listener.accept();
-				Log.syslog("Connected from");
+//				Log.syslog("Connected from");
+				System.out.println("A new client is connected");
 				ServiceThread new_thread = new ServiceThread(socketOfServer, clientNumber);
 				Thread thread = new Thread(new_thread);
 				thread.start();

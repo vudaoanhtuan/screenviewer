@@ -161,6 +161,22 @@ public final class MessagePB {
        * <code>NO = 5;</code>
        */
       NO(5),
+      /**
+       * <code>REQUEST_SEND_FILE = 6;</code>
+       */
+      REQUEST_SEND_FILE(6),
+      /**
+       * <code>END_SEND_FILE = 7;</code>
+       */
+      END_SEND_FILE(7),
+      /**
+       * <code>ACCEPT = 10;</code>
+       */
+      ACCEPT(10),
+      /**
+       * <code>REJECT = 11;</code>
+       */
+      REJECT(11),
       ;
 
       /**
@@ -187,6 +203,22 @@ public final class MessagePB {
        * <code>NO = 5;</code>
        */
       public static final int NO_VALUE = 5;
+      /**
+       * <code>REQUEST_SEND_FILE = 6;</code>
+       */
+      public static final int REQUEST_SEND_FILE_VALUE = 6;
+      /**
+       * <code>END_SEND_FILE = 7;</code>
+       */
+      public static final int END_SEND_FILE_VALUE = 7;
+      /**
+       * <code>ACCEPT = 10;</code>
+       */
+      public static final int ACCEPT_VALUE = 10;
+      /**
+       * <code>REJECT = 11;</code>
+       */
+      public static final int REJECT_VALUE = 11;
 
 
       public final int getNumber() {
@@ -209,6 +241,10 @@ public final class MessagePB {
           case 3: return CHAT;
           case 4: return YES;
           case 5: return NO;
+          case 6: return REQUEST_SEND_FILE;
+          case 7: return END_SEND_FILE;
+          case 10: return ACCEPT;
+          case 11: return REJECT;
           default: return null;
         }
       }
@@ -844,11 +880,13 @@ public final class MessagePB {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rmessage.proto\022\010protobuf\"\236\001\n\007Message\0221\n" +
+      "\n\rmessage.proto\022\010protobuf\"\341\001\n\007Message\0221\n" +
       "\004type\030\001 \002(\0162\035.protobuf.Message.MessageTy" +
-      "pe:\004NONE\022\014\n\004mess\030\002 \001(\t\"R\n\013MessageType\022\010\n" +
-      "\004NONE\020\000\022\017\n\013VIEW_SCREEN\020\001\022\r\n\tSEND_FILE\020\002\022" +
-      "\010\n\004CHAT\020\003\022\007\n\003YES\020\004\022\006\n\002NO\020\005B\013B\tMessagePB"
+      "pe:\004NONE\022\014\n\004mess\030\002 \001(\t\"\224\001\n\013MessageType\022\010" +
+      "\n\004NONE\020\000\022\017\n\013VIEW_SCREEN\020\001\022\r\n\tSEND_FILE\020\002" +
+      "\022\010\n\004CHAT\020\003\022\007\n\003YES\020\004\022\006\n\002NO\020\005\022\025\n\021REQUEST_S" +
+      "END_FILE\020\006\022\021\n\rEND_SEND_FILE\020\007\022\n\n\006ACCEPT\020" +
+      "\n\022\n\n\006REJECT\020\013B\013B\tMessagePB"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

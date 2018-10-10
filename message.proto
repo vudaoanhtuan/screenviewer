@@ -14,6 +14,12 @@ message Message {
 
     YES = 4;
     NO = 5;
+
+    REQUEST_SEND_FILE = 6;
+    END_SEND_FILE = 7;
+
+    ACCEPT = 10;
+    REJECT = 11;
   }
 
   required MessageType type = 1 [default = NONE];
